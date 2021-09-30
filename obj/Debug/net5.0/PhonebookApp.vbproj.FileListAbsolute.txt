@@ -1,0 +1,16 @@
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.exe
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.deps.json
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.runtimeconfig.json
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.runtimeconfig.dev.json
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.dll
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\ref\PhonebookApp.dll
+C:\Revature2\Ai-code\vb\PhonebookApp\bin\Debug\net5.0\PhonebookApp.pdb
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.vbproj.AssemblyReference.cache
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.AssemblyInfoInputs.cache
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.AssemblyInfo.vb
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.vbproj.CoreCompileInputs.cache
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.dll
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\ref\PhonebookApp.dll
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.pdb
+C:\Revature2\Ai-code\vb\PhonebookApp\obj\Debug\net5.0\PhonebookApp.genruntimeconfig.cache
