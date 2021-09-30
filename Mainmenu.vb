@@ -11,7 +11,7 @@ Class mainMenu
 	Dim input as String = Console.Readline()
 	Select Case input
 		Case "0"
-			Console.WriteLine("Hello there ")
+			Console.WriteLine("Hello there user ")
 		Case "x"
 			Console.WriteLine("Goodbye")
 			repeat = False 	
