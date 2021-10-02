@@ -12,6 +12,7 @@ Class mainMenu
 		Do While repeat
 			Console.writeLine("What would you like to do")
 			Console.writeLine("[0] Add a friend")
+			AddFriend()
 			Console.WriteLine("[1] Show all friends")
 			Console.writeLine("[x] Exit")
 
