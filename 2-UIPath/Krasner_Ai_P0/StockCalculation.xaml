@@ -1,0 +1,392 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="StockCalculation" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="888,5976" sap2010:WorkflowViewState.IdRef="StockCalculation_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="20">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="StockCalculation" sap:VirtualizedContainerService.HintSize="839,5911" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Double" Name="QuantityBeer" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryBeer" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustmentBeer" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityWaffles" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryWaffles" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustmentWaffles" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityChicken" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryChicken" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustmentChicken" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityWhiskey" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryWhiskey" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustmentWhiskey" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityCorn" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryCorn" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustmentCorn" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityGrapes" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryGrapes" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustedGrapes" />
+      <Variable x:TypeArguments="x:Double" Name="QuantityPeanutButter" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryPeanutButter" />
+      <Variable x:TypeArguments="x:Double" Name="InventoryAdjustedPeanutButter" />
+      <Variable x:TypeArguments="x:Double" Name="SetStockToZero" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadCell Cell="D2" DisplayName="Read Cell (Quantity Beer)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityBeer]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D3" DisplayName="Read Cell ( Quantity Waffles)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityWaffles]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D4" DisplayName="Read Cell (Quantity Chicken)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_5" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityChicken]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D5" DisplayName="Read Cell (Quantity Whiskey)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_6" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityWhiskey]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D6" DisplayName="Read Cell (Quanity Corn)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_7" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityCorn]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D7" DisplayName="Read Cell (Quantity Grapes)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_8" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityGrapes]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D8" DisplayName="Read Cell (Quantity Peanut Butter)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_9" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityPeanutButter]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E2" DisplayName="Read Cell ( Inventory Beer )" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_2" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryBeer]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E3" DisplayName="Read Cell ( Inventory Waffles)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_4" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryWaffles]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E4" DisplayName="Read Cell (Inventory Chicken)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_10" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryChicken]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D5" DisplayName="Read Cell (Whiskey)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_11" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryWhiskey]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E6" DisplayName="Read Cell (Corn)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_12" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryCorn]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E7" DisplayName="Read Cell (Inventory Grapes)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_13" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryGrapes]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="E8" DisplayName="Read Cell (Inventory Peanut Butter)" sap:VirtualizedContainerService.HintSize="797,87" sap2010:WorkflowViewState.IdRef="ReadCell_14" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[InventoryPeanutButter]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="797,317" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustmentBeer]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryBeer-QuantityBeer]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustmentWaffles]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryWaffles-QuantityWaffles]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustmentChicken]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryChicken-QuantityChicken]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustmentWhiskey]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryWhiskey-QuantityWhiskey]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustmentCorn]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryCorn-QuantityCorn]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustedGrapes]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryGrapes-QuantityGrapes]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[InventoryAdjustedPeanutButter]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">[InventoryPeanutButter-QuantityPeanutButter]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Double">[SetStockToZero]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Double">0</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <If Condition="[InventoryAdjustmentBeer&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[InventoryAdjustmentBeer.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Beer is out of stock&quot;]" />
+          <ui:WriteCell Cell="E2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_9" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustmentWaffles&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[InventoryAdjustmentWaffles.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Waffles is out of stock&quot;]" />
+          <ui:WriteCell Cell="E3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_10" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustmentChicken&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E4" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[InventoryAdjustmentChicken.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Chicken is out of stock!&quot;]" />
+          <ui:WriteCell Cell="E4" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_11" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustmentWhiskey&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_8">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[InventoryAdjustmentWhiskey.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;Whiskey is out of stock!!!&quot;]" />
+          <ui:WriteCell Cell="E5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_12" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustmentCorn&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_5">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[InventoryAdjustmentCorn.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;Corn is out of stock!&quot;]" />
+          <ui:WriteCell Cell="E6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_13" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustedGrapes &gt; 0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_6">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[InventoryAdjustedGrapes.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Grapes are out of stock&quot;]" />
+          <ui:WriteCell Cell="E7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_14" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[InventoryAdjustedPeanutButter&gt;0]" sap:VirtualizedContainerService.HintSize="797,492" sap2010:WorkflowViewState.IdRef="If_7">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteCell Cell="E8" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_8" SheetName="Sheet1" Text="[InventoryAdjustedPeanutButter.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,332" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,85" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;Peanut Butter is out of stock&quot;]" />
+          <ui:WriteCell Cell="E8" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_15" SheetName="Sheet1" Text="[SetStockToZero.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

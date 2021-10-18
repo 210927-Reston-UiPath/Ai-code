@@ -1,0 +1,431 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InitialGreeting" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="675,1947" sap2010:WorkflowViewState.IdRef="InitialGreeting_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="InitialGreeting" sap:VirtualizedContainerService.HintSize="663,1882" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="st_Clients" />
+      <Variable x:TypeArguments="x:String" Name="vendorResults" />
+      <Variable x:TypeArguments="x:String" Name="buttonchoice" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="621,291" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Hello and welcome to your first shopping bot!&#xA;My names Rosa. Please select your name from the list.&#xA;Press 'ok' to continue" Options="[{&quot;Samuel&quot;,&quot;Tina&quot;,&quot;Frank&quot;}]" Title="Greeting and Name">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[st_Clients]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="621,291" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="What kind of shopping do you want to do?" OptionsString="Grocery;Auto Parts; Home Goods" Title="Vendor Choice">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:String">[vendorResults]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="621,84" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Great! You picked &quot; + vendorResults]" />
+    <ui:MessageBox Caption="{x:Null}" AutoCloseAfter="00:00:00" Buttons="YesNoCancel" ChosenButton="[buttonchoice]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="621,84" sap2010:WorkflowViewState.IdRef="MessageBox_12" Text="[&quot;Would you like to place an order?&quot;]" TopMost="True" />
+    <If Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Samuel&quot; AND vendorResults = &quot;Grocery&quot;]" sap:VirtualizedContainerService.HintSize="621,448" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="376,300" sap2010:WorkflowViewState.IdRef="Sequence_21">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="ORDER PROCESSING" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;One Moment &quot;+ st_Clients +&quot; While we pull up your account..&quot;]" />
+          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:03" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,84" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;Your subscription is being processed as we speak and your &quot; + vendorResults + &quot; items are being delivered to you right away!&quot;]" />
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If sap2010:Annotation.AnnotationText="If Samuel shops for Groceries,Auto Parts or Home Goods he sends results to excel docs.&#xA;" Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Samuel&quot; AND vendorResults = &quot;Grocery&quot;]" sap:VirtualizedContainerService.HintSize="621,138" sap2010:WorkflowViewState.IdRef="If_8">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="494,1248" sap2010:WorkflowViewState.IdRef="Sequence_50">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="452,87" sap2010:WorkflowViewState.IdRef="ReadRange_13" Range="B2:D10" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Grocery.xlsx" />
+          <Sequence sap:VirtualizedContainerService.HintSize="452,573" sap2010:WorkflowViewState.IdRef="Sequence_48">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="410,481" sap2010:WorkflowViewState.IdRef="ForEachRow_15">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Object" Name="obj_Samuel" />
+                      <Variable x:TypeArguments="x:Object" Name="samuelResults" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="[CurrentRow.Item(1).ToString]" />
+                    <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_11" SheetName="Sheet1" StartingCell="B2" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke StockCalculation workflow" sap:VirtualizedContainerService.HintSize="452,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="StockCalculation.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Total Expense(Orders) workflow" sap:VirtualizedContainerService.HintSize="452,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Total Expense(Orders).xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SEND RECEIPT FOR SAMUELS GROCERIES" sap:VirtualizedContainerService.HintSize="452,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Receipt (Samuel).xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="1093,1113" sap2010:WorkflowViewState.IdRef="Sequence_49">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Samuel&quot; AND vendorResults = &quot;Auto Parts&quot;]" sap:VirtualizedContainerService.HintSize="1051,1021" sap2010:WorkflowViewState.IdRef="If_7">
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="452,700" sap2010:WorkflowViewState.IdRef="Sequence_52">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="410,87" sap2010:WorkflowViewState.IdRef="ReadRange_14" Range="B2:D9" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Auto Parts.xlsx" />
+                <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="410,481" sap2010:WorkflowViewState.IdRef="ForEachRow_16">
+                  <ui:ForEachRow.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="[CurrentRow.Item(1).ToString]" />
+                        <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_12" SheetName="Sheet1" StartingCell="B2" WorkbookPath="Data\Vendor (Auto Parts) Orders.xlsx" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachRow.Body>
+                </ui:ForEachRow>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="554,873" sap2010:WorkflowViewState.IdRef="Sequence_55">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="512,87" sap2010:WorkflowViewState.IdRef="ReadRange_15" Range="B2:D9" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Home goods.xlsx" />
+                <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="512,654" sap2010:WorkflowViewState.IdRef="ForEachRow_17">
+                  <ui:ForEachRow.Body>
+                    <ActivityAction x:TypeArguments="sd:DataRow">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="Sequence_54">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,232" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                          <ui:CommentOut.Body>
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272.5,154" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230.5,62" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="[CurrentRow.Item(1).ToString]" />
+                            </Sequence>
+                          </ui:CommentOut.Body>
+                        </ui:CommentOut>
+                        <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="436,115" sap2010:WorkflowViewState.IdRef="WriteRange_13" SheetName="Sheet1" StartingCell="B2" WorkbookPath="Data\Vendor (Home Goods) Orders.xlsx" />
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:ForEachRow.Body>
+                </ui:ForEachRow>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If sap2010:Annotation.AnnotationText="Tinas results only send when she picks Grocery as she only has 1 subscription.&#xA;" Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Tina&quot; AND vendorResults = &quot;Grocery&quot;]" sap:VirtualizedContainerService.HintSize="1017,1134" sap2010:WorkflowViewState.IdRef="If_9">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="494,944" sap2010:WorkflowViewState.IdRef="Sequence_61">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap:VirtualizedContainerService.HintSize="452,700" sap2010:WorkflowViewState.IdRef="Sequence_60">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="410,87" sap2010:WorkflowViewState.IdRef="ReadRange_16" Range="B11:D17" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Grocery.xlsx" />
+            <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="410,481" sap2010:WorkflowViewState.IdRef="ForEachRow_18">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="[CurrentRow.Item(1).ToString]" />
+                    <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_14" SheetName="Sheet1" StartingCell="B13" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Receipt (Tina) workflow" sap:VirtualizedContainerService.HintSize="452,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Receipt (Tina).xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="478,253" sap2010:WorkflowViewState.IdRef="Sequence_62">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,161" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_71">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </ui:CommentOut.Body>
+          </ui:CommentOut>
+        </Sequence>
+      </If.Else>
+    </If>
+    <If Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Frank&quot; AND vendorResults = &quot;Grocery&quot;]" sap:VirtualizedContainerService.HintSize="621,51" sap2010:WorkflowViewState.IdRef="If_10">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="554,873" sap2010:WorkflowViewState.IdRef="Sequence_64">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="512,87" sap2010:WorkflowViewState.IdRef="ReadRange_17" Range="B20:D25" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Grocery.xlsx" />
+          <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="512,654" sap2010:WorkflowViewState.IdRef="ForEachRow_19">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,232" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272.5,154" sap2010:WorkflowViewState.IdRef="Sequence_72">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230.5,62" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[CurrentRow.Item(1).ToString]" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                  </ui:CommentOut>
+                  <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="436,115" sap2010:WorkflowViewState.IdRef="WriteRange_15" SheetName="Sheet1" StartingCell="B24" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+          </ui:ForEachRow>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <If Condition="[buttonchoice.Equals(&quot;Yes&quot;) AND st_Clients = &quot;Frank&quot; AND vendorResults = &quot;Auto Parts&quot;]" sap:VirtualizedContainerService.HintSize="590,1053" sap2010:WorkflowViewState.IdRef="If_11">
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="554,873" sap2010:WorkflowViewState.IdRef="Sequence_68">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadRange AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="512,87" sap2010:WorkflowViewState.IdRef="ReadRange_18" Range="B20:D27" SheetName="Sheet1" WorkbookPath="Data\Client shopping list Auto Parts.xlsx" />
+              <ui:ForEachRow CurrentIndex="{x:Null}" ColumnCount="6" ColumnNames="" DataTable="[dt_range]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="512,654" sap2010:WorkflowViewState.IdRef="ForEachRow_20">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="478,479" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,232" sap2010:WorkflowViewState.IdRef="CommentOut_12">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272.5,154" sap2010:WorkflowViewState.IdRef="Sequence_73">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230.5,62" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="[CurrentRow.Item(1).ToString]" />
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                      </ui:CommentOut>
+                      <ui:WriteRange AddHeaders="False" DataTable="[dt_range]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="436,115" sap2010:WorkflowViewState.IdRef="WriteRange_16" SheetName="Sheet1" StartingCell="B24" WorkbookPath="Data\Vendor (Auto Parts) Orders.xlsx" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+              </ui:ForEachRow>
+            </Sequence>
+          </If.Then>
+        </If>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

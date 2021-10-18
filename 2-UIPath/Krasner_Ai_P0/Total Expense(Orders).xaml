@@ -1,0 +1,296 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Total_Expense" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="888,4492" sap2010:WorkflowViewState.IdRef="Total_Expense_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="31">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Total_Expense ( BEER )" sap:VirtualizedContainerService.HintSize="544,4427" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Double" Name="QuantityD2" />
+      <Variable x:TypeArguments="x:Double" Name="PriceC2" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_Beer" />
+      <Variable x:TypeArguments="x:Double" Name="dbl_BeerDiscount" />
+      <Variable x:TypeArguments="x:String" Name="GrandTotal" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ReadCell Cell="C2" DisplayName="Read Cell (Price)" sap:VirtualizedContainerService.HintSize="502,87" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[PriceC2]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="D2" DisplayName="Read Cell (Quantity)" sap:VirtualizedContainerService.HintSize="502,87" sap2010:WorkflowViewState.IdRef="ReadCell_2" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[QuantityD2]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <ui:ReadCell Cell="F2" DisplayName="Read Cell (Discount)" sap:VirtualizedContainerService.HintSize="502,87" sap2010:WorkflowViewState.IdRef="ReadCell_3" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+      <ui:ReadCell.Result>
+        <OutArgument x:TypeArguments="x:Double">[dbl_BeerDiscount]</OutArgument>
+      </ui:ReadCell.Result>
+    </ui:ReadCell>
+    <Assign DisplayName="Assign (TOTAL)" sap:VirtualizedContainerService.HintSize="502,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Double">[dbl_Beer]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Double">[PriceC2*QuantityD2*dbl_BeerDiscount]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteCell Cell="G2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="502,115" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[dbl_Beer.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+    <Sequence DisplayName="Total_Expense ( Waffles )" sap:VirtualizedContainerService.HintSize="502,3699" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Double" Name="QuantityD3" />
+        <Variable x:TypeArguments="x:Double" Name="PriceC3" />
+        <Variable x:TypeArguments="x:Double" Name="dbl_Waffles" />
+        <Variable x:TypeArguments="sd:DataTable" Name="sheetResults" />
+        <Variable x:TypeArguments="x:Double" Default="0" Name="A" />
+        <Variable x:TypeArguments="x:Double" Name="B" />
+        <Variable x:TypeArguments="x:Double" Name="test" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ReadCell Cell="C3" DisplayName="Read Cell (Price)" sap:VirtualizedContainerService.HintSize="460,87" sap2010:WorkflowViewState.IdRef="ReadCell_4" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="x:Double">[PriceC3]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <ui:ReadCell Cell="D3" DisplayName="Read Cell (Quantity)" sap:VirtualizedContainerService.HintSize="460,87" sap2010:WorkflowViewState.IdRef="ReadCell_5" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+        <ui:ReadCell.Result>
+          <OutArgument x:TypeArguments="x:Double">[QuantityD3]</OutArgument>
+        </ui:ReadCell.Result>
+      </ui:ReadCell>
+      <Assign DisplayName="Assign (TOTAL)" sap:VirtualizedContainerService.HintSize="460,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Double">[dbl_Beer]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Double">[PriceC3*QuantityD3]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:WriteCell Cell="G3" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="460,115" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[dbl_Beer.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+      <Sequence DisplayName="Sequence (Chicken)" sap:VirtualizedContainerService.HintSize="460,3098" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:Double" Name="PriceChickenC4" />
+          <Variable x:TypeArguments="x:Double" Name="QuantiityChickenD4" />
+          <Variable x:TypeArguments="x:Double" Name="dbl_Chicken" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadCell Cell="C4" DisplayName="Read Cell ChickenPrice" sap:VirtualizedContainerService.HintSize="418,87" sap2010:WorkflowViewState.IdRef="ReadCell_7" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+          <ui:ReadCell.Result>
+            <OutArgument x:TypeArguments="x:Double">[PriceChickenC4]</OutArgument>
+          </ui:ReadCell.Result>
+        </ui:ReadCell>
+        <ui:ReadCell Cell="D4" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="418,87" sap2010:WorkflowViewState.IdRef="ReadCell_9" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+          <ui:ReadCell.Result>
+            <OutArgument x:TypeArguments="x:Double">[QuantiityChickenD4]</OutArgument>
+          </ui:ReadCell.Result>
+        </ui:ReadCell>
+        <Assign DisplayName="Assign Total" sap:VirtualizedContainerService.HintSize="418,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Double">[dbl_Chicken]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Double">[PriceChickenC4*QuantiityChickenD4]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="418,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[dbl_Chicken]" />
+        <ui:WriteCell Cell="G4" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="418,115" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[dbl_Chicken.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        <Sequence DisplayName="Sequence (Whiskey)" sap:VirtualizedContainerService.HintSize="418,561" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Double" Name="PriceWhiskeyC5" />
+            <Variable x:TypeArguments="x:Double" Name="QuantityWhiskeyD5" />
+            <Variable x:TypeArguments="x:Double" Name="dbl_Whiskey" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadCell Cell="C5" DisplayName="Read Cell (Price)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_10" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[PriceWhiskeyC5]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <ui:ReadCell Cell="D5" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_11" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[QuantityWhiskeyD5]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <Assign DisplayName="Assign Total" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Double">[dbl_Whiskey]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Double">[PriceWhiskeyC5*QuantityWhiskeyD5]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:WriteCell Cell="G5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[dbl_Whiskey.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+        <Sequence DisplayName="Sequence (Corn)" sap:VirtualizedContainerService.HintSize="418,561" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Double" Name="dbl_Corn" />
+            <Variable x:TypeArguments="x:Double" Name="PriceCornC6" />
+            <Variable x:TypeArguments="x:Double" Name="QuantityCornD6" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadCell Cell="C6" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_15" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[PriceCornC6]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <ui:ReadCell Cell="D6" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_14" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[QuantityCornD6]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Double">[dbl_Corn]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Double">[PriceCornC6*QuantityCornD6]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:WriteCell Cell="G6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[dbl_Corn.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+        </Sequence>
+        <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="418,1162" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Double" Name="PriceGrapesC7" />
+            <Variable x:TypeArguments="x:Double" Name="QuantityGrapesD7" />
+            <Variable x:TypeArguments="x:Double" Name="dbl_Grapes" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadCell Cell="C7" DisplayName="Read Cell (GrapesPrice)" sap:VirtualizedContainerService.HintSize="376,87" sap2010:WorkflowViewState.IdRef="ReadCell_16" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[PriceGrapesC7]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <ui:ReadCell Cell="D7" DisplayName="Read Cell (QuantityGrapes)" sap:VirtualizedContainerService.HintSize="376,87" sap2010:WorkflowViewState.IdRef="ReadCell_17" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+            <ui:ReadCell.Result>
+              <OutArgument x:TypeArguments="x:Double">[QuantityGrapesD7]</OutArgument>
+            </ui:ReadCell.Result>
+          </ui:ReadCell>
+          <Assign sap:VirtualizedContainerService.HintSize="376,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Double">[dbl_Grapes]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Double">[PriceGrapesC7*QuantityGrapesD7]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:WriteCell Cell="G7" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="376,115" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[dbl_Grapes.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+          <Sequence sap:VirtualizedContainerService.HintSize="376,561" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Double" Name="PricePeanutButterC8" />
+              <Variable x:TypeArguments="x:Double" Name="QuantityPeanutButterD8" />
+              <Variable x:TypeArguments="x:Double" Name="dbl_PeanutButter" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadCell Cell="C8" DisplayName="Read Cell (Peanut Butter Price)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_18" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+              <ui:ReadCell.Result>
+                <OutArgument x:TypeArguments="x:Double">[PricePeanutButterC8]</OutArgument>
+              </ui:ReadCell.Result>
+            </ui:ReadCell>
+            <ui:ReadCell Cell="D8" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ReadCell_19" SheetName="Sheet1" WorkbookPath="Data\Vendor (Grocery) Order.xlsx">
+              <ui:ReadCell.Result>
+                <OutArgument x:TypeArguments="x:Double">[QuantityPeanutButterD8]</OutArgument>
+              </ui:ReadCell.Result>
+            </ui:ReadCell>
+            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Double">[dbl_PeanutButter]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Double">[PricePeanutButterC8*QuantityPeanutButterD8]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:WriteCell Cell="G8" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_9" SheetName="Sheet1" Text="[dbl_PeanutButter.ToString]" WorkbookPath="Data\Vendor (Grocery) Order.xlsx" />
+          </Sequence>
+        </Sequence>
+      </Sequence>
+    </Sequence>
+  </Sequence>
+</Activity>
